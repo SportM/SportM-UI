@@ -1,0 +1,22 @@
+.sign-methods {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+.sign-methods li {
+	padding-right: 50px;
+}
+
+.sign-methods li p {
+	color: blue;
+}
+
+.sign-methods li p:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.row-center {
+	justify-content: center;
+}
