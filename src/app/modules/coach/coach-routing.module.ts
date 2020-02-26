@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CoachComponent } from './coach.component';
-import {CoachExerciceComponent} from '../coach-exercice/coach-exercice.component';
-import {CoachPlanningComponent} from '../coach-planning/coach-planning.component';
 
 const routes: Routes = [
   { path: '',
