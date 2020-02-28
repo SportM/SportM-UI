@@ -1,24 +1,24 @@
-<nav>
-  <button mat-button [matMenuTriggerFor]="belowMenuEnt">Entrainement</button>
-  <mat-menu #belowMenuEnt="matMenu" yPosition="below">
-    <button routerLink="/coach/training" mat-menu-item>Créer un entrainement</button>
-    <button routerLink="/coach/exercice" mat-menu-item>Créer un exercice</button>
-    <button routerLink="/coach/plannig"  mat-menu-item>Planning entrainement</button>
-<!--    <button routerLink="/coach/typeExercice"  mat-menu-item>Catégorie excercice</button>-->
-  </mat-menu>
 
-  <button mat-button [matMenuTriggerFor]="belowMenuMembres">Membres</button>
-  <mat-menu #belowMenuMembres="matMenu" yPosition="below">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+<div class="example-container" [class.is-mobile]="mobileQuery.matches" >
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>{{title}}</h1>
 
-  <button mat-button [matMenuTriggerFor]="belowMenuGestion">Gestion</button>
-  <mat-menu #belowMenuGestion="matMenu" yPosition="below">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+  </mat-toolbar>
 
+  <mat-sidenav-container class="sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a routerLink="/coach/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>
+        <a routerLink="/coach/exercice" (click)="changeTitle($event)" mat-menu-item>Exercices</a>
+        <a routerLink="/coach/plannig"  (click)="changeTitle($event)" mat-menu-item>Planning</a>
+      </mat-nav-list>
+    </mat-sidenav>
 
+  </mat-sidenav-container>
+</div>
 
-</nav>
