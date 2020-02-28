@@ -5,10 +5,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatDatepickerModule,
   MatDialogModule,
-  MatFormFieldModule,
-  MatInputModule,
+  MatFormFieldModule, MatIconModule,
+  MatInputModule, MatListModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule, MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 
 
@@ -25,6 +25,7 @@ import {
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+
   ],
   entryComponents: [PopupNewTrainingComponent],
   exports: [PopupNewTrainingComponent]

@@ -1,10 +1,24 @@
-<nav>
-<!--  <mat-menu #="matMenu" yPosition="below">-->
-    <button routerLink="/athletes/training" mat-menu-item>Entrainement</button>
-    <button routerLink="/athletes/profile" mat-menu-item>Profile</button>
-    <button routerLink="/athletes/regatta"  mat-menu-item>Regattas</button>
-    <button routerLink="/athletes/crew"  mat-menu-item>Equipage</button>
-<!--    <button routerLink="/athletes/plannig"  mat-menu-item>logout</button>-->
-<!--  </mat-menu>-->
+<div class="example-container" [class.is-mobile]="mobileQuery.matches" >
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>{{title}}</h1>
 
-</nav>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a routerLink="/athletes/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>
+        <a routerLink="/athletes/profile" (click)="changeTitle($event)" mat-menu-item>Profile</a>
+        <a routerLink="/athletes/regatta"  (click)="changeTitle($event)" mat-menu-item>Regattas</a>
+        <a routerLink="/athletes/crew"  (click)="changeTitle($event)" mat-menu-item>Equipage</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+</div>
+
