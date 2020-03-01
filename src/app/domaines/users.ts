@@ -1,6 +1,8 @@
+import {Roles} from './roles';
+
 export class User {
   id: number;
-  name: string;
-  mail: string;
-  role: number;
+  firstName: string;
+  lastName: string;
+  membershipType: Roles;
 }
