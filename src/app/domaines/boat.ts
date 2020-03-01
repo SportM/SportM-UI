@@ -1,7 +1,10 @@
+import {TypeBoat} from './type-boat';
+import {Hangar} from './hangar';
+
 export class Boat {
   id: number;
   name: string;
-  type: typeBoat[];
+  typeBoat: TypeBoat[];
   weight: string;
   status: string;
   storage: Hangar;
@@ -11,12 +14,12 @@ export class Boat {
   comments: string;
   serialNumber: string;
 
-  constructor(id?: number, name?: string, type?: typeBoat, weight?: string, status?: string, storage?: Hangar, riggers?: string,
+  constructor(id?: number, name?: string, typeBoat?: TypeBoat[], weight?: string, status?: string, storage?: Hangar, riggers?: string,
               make?: string, year?: Date, comments?: string, serialNumber?: string) {
 
     this.id = id;
     this.name = name;
-    this.type = type;
+    this.typeBoat = typeBoat;
     this.weight = weight;
     this.status = status;
     this.storage = storage;
