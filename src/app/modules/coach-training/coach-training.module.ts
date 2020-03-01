@@ -4,7 +4,7 @@ import { CoachTrainingRoutingModule } from './coach-training-routing.module';
 import { CoachTrainingComponent } from './coach-training.component';
 import {CoachTrainingService} from '../../services/coach-training.service';
 import {MatButtonModule, MatTableModule} from '@angular/material';
-import {ShareModule} from '../share/share.module';
+import {SharePopUpModule} from '../share-pop-up/share-pop-up.module';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import {ShareModule} from '../share/share.module';
     CoachTrainingRoutingModule,
     MatTableModule,
     MatButtonModule,
-    ShareModule,
+    SharePopUpModule
   ],
   providers: [CoachTrainingService]
 })

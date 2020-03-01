@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PopupNewTrainingComponent} from '../../components/popup-new-training/popup-new-training.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatDatepickerModule,
   MatDialogModule,
-  MatFormFieldModule, MatIconModule,
-  MatInputModule, MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
   MatNativeDateModule,
-  MatSelectModule, MatSidenavModule, MatToolbarModule
+  MatSelectModule
 } from '@angular/material';
+import {CoachComponent} from '../coach/coach.component';
 
 
 
 @NgModule({
-  declarations: [PopupNewTrainingComponent],
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -24,12 +24,8 @@ import {
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-
+    // MatNativeDateModule,
   ],
-  entryComponents: [PopupNewTrainingComponent],
-  exports: [PopupNewTrainingComponent]
-
 })
 export class ShareModule { }
 

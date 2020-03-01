@@ -17,6 +17,7 @@ export class AthleteMenuComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
+    this.title = 'Entrainement';
   }
 
   ngOnDestroy(): void {
