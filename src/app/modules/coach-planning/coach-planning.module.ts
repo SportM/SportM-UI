@@ -8,6 +8,7 @@ import {
   MatNativeDateModule,
 } from '@angular/material';
 import {ShareModule} from '../share/share.module';
+import {SharePopUpModule} from '../share-pop-up/share-pop-up.module';
 
 @NgModule({
   declarations: [CoachPlanningComponent],
@@ -15,6 +16,7 @@ import {ShareModule} from '../share/share.module';
     CommonModule,
     CoachPlanningRoutingModule,
     CalendarTModule,
+    SharePopUpModule,
     ShareModule
   ],
 })

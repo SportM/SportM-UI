@@ -9,6 +9,8 @@ import {
   MatMenuModule, MatSidenavModule, MatToolbarModule,
 } from '@angular/material';
 import {ShareMenuModule} from '../share-menu/share-menu.module';
+import {ShareModule} from '../share/share.module';
+import {SharePopUpModule} from '../share-pop-up/share-pop-up.module';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import {ShareMenuModule} from '../share-menu/share-menu.module';
   imports: [
     CommonModule,
     CoachRoutingModule,
-    ShareMenuModule
+    ShareMenuModule,
+    SharePopUpModule
   ],
 })
 export class CoachModule { }
