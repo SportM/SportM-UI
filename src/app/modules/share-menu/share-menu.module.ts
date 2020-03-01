@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
-import {AthleteMenuComponent} from '../../components/athlete-menu/athlete-menu.component';
-import {CoachMenuComponent} from '../../components/coach-menu/coach-menu.component';
 
 
 
 @NgModule({
-  declarations: [AthleteMenuComponent, CoachMenuComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -15,6 +13,12 @@ import {CoachMenuComponent} from '../../components/coach-menu/coach-menu.compone
     MatToolbarModule,
     MatListModule
   ],
-  exports: [AthleteMenuComponent, CoachMenuComponent]
+  exports: [
+    CommonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule
+  ]
 })
 export class ShareMenuModule { }

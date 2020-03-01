@@ -8,12 +8,12 @@ const routes: Routes = [
     component: AthletesComponent,
     children: [
       {
-        path: 'profile',
-        loadChildren: () => import('../athletes-profile/athletes-profile.module').then(m => m.AthletesProfileModule)
-      },
-      {
         path: 'training',
         loadChildren: () => import('../athletes-training/athletes-training.module').then(m => m.AthletesTrainingModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../athletes-profile/athletes-profile.module').then(m => m.AthletesProfileModule)
       },
       {
         path: 'regatta',

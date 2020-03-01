@@ -26,6 +26,15 @@ import {CoachComponent} from '../coach/coach.component';
     MatDatepickerModule,
     // MatNativeDateModule,
   ],
+  exports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule
+  ]
 })
 export class ShareModule { }
 

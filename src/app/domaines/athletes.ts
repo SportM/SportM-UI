@@ -1,4 +1,3 @@
-import {Roles} from './roles';
 import {User} from './users';
 import {Boat} from './boat';
 import {Side} from './side';
@@ -15,8 +14,8 @@ export class Athletes extends User {
   sex: string;
   rcaNumber: string;
 
-  constructor(dob?: Date, weight?: string, size?: string, height?: string, category?: WeightCategory, boatPreference?: Boat[], side?: Side[],
-              sex?: string, rcaNumber?: string) {
+  constructor(dob?: Date, weight?: string, size?: string, height?: string, category?: WeightCategory, boatPreference?: Boat[],
+              side?: Side[], sex?: string, rcaNumber?: string) {
     super();
 
     this.dob = dob;
