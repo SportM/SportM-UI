@@ -1,15 +1,88 @@
 <form [formGroup]="profileForm">
-  <div>
-    <mat-form-field>
-      <label>Date: </label>
-      <input matInput [matDatepicker]="picker" formControlName="dateStart" required>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngFor="let validation of errorMessages.dob">
-                <mat-error class="error-message" *ngIf="profileForm.get('dateStart').hasError(validation.type) &&
-                (profileForm.get('dateStart').dirty || profileForm.get('dateStart').touched)">{{validation.message}}
-                </mat-error>
-              </mat-error>
-    </mat-form-field>
-  </div>
+<div>
+  <mat-form-field>
+    <label>Email</label>
+    <input matInput type="email" formControlName="email" required>
+    <mat-error *ngFor="let validation of errorMessages.email">
+      <mat-error class="error-message" *ngIf="profileForm.get('email').hasError(validation.type) &&
+            (profileForm.get('email').dirty || profileForm.get('email').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Date of birth: </label>
+    <input matInput [matDatepicker]="picker" formControlName="dob" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngFor="let validation of errorMessages.dob">
+      <mat-error class="error-message" *ngIf="profileForm.get('dob').hasError(validation.type) &&
+                (profileForm.get('dob').dirty || profileForm.get('dob').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sex</mat-label>
+    <mat-select formControlName="sex">
+      <mat-option *ngFor="let sex of sex" [value]="sex.id">{{sex.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngFor="let validation of errorMessages.boatPreference">
+      <mat-error class="error-message" *ngIf="profileForm.get('sex').hasError(validation.type) &&
+          (profileForm.get('sex').dirty || profileForm.get('sex').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Boat preferences</mat-label>
+    <mat-select formControlName="boatPreference">
+      <mat-option *ngFor="let boat of boats" [value]="boat.id">{{boat.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngFor="let validation of errorMessages.boatPreference">
+      <mat-error class="error-message" *ngIf="profileForm.get('boatPreference').hasError(validation.type) &&
+          (profileForm.get('boatPreference').dirty || profileForm.get('boatPreference').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Prefered side</mat-label>
+    <mat-select formControlName="side">
+      <mat-option *ngFor="let side of sides" [value]="side.id">{{side.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngFor="let validation of errorMessages.boatPreference">
+      <mat-error class="error-message" *ngIf="profileForm.get('side').hasError(validation.type) &&
+          (profileForm.get('side').dirty || profileForm.get('side').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Size</label>
+    <input matInput type="text" formControlName="height" required>
+    <mat-error *ngFor="let validation of errorMessages.height">
+      <mat-error class="error-message" *ngIf="profileForm.get('height').hasError(validation.type) &&
+            (profileForm.get('height').dirty || profileForm.get('height').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Category</label>
+    <input matInput type="text" formControlName="weightCategory" required>
+    <mat-error *ngFor="let validation of errorMessages.weightCategory">
+      <mat-error class="error-message" *ngIf="profileForm.get('weightCategory').hasError(validation.type) &&
+            (profileForm.get('weightCategory').dirty || profileForm.get('weightCategory').touched)">{{validation.message}}
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-button mat-raised-button
+          (click)="create()">{{'save'}}
+<!--          (click)="create()">{{data.training.id ? 'Modifier tous' : 'Créer'}}-->
+  </button>
+</div>
+
 </form>

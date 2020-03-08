@@ -7,18 +7,18 @@ const routes: Routes = [
   { path: '',
     component: AthletesComponent,
     children: [
-      {
-        path: 'training',
-        loadChildren: () => import('../athletes-training/athletes-training.module').then(m => m.AthletesTrainingModule)
-      },
+      // {
+      //   path: 'training',
+      //   loadChildren: () => import('../athletes-training/athletes-training.module').then(m => m.AthletesTrainingModule)
+      // },
       {
         path: 'profile',
         loadChildren: () => import('../athletes-profile/athletes-profile.module').then(m => m.AthletesProfileModule)
       },
-      {
-        path: 'regatta',
-        loadChildren: () => import('../athletes-regatta/athletes-regatta.module').then(m => m.AthletesRegattaModule)
-      },
+      // {
+      //   path: 'regatta',
+      //   loadChildren: () => import('../athletes-regatta/athletes-regatta.module').then(m => m.AthletesRegattaModule)
+      // },
       {
         path: 'crew',
         loadChildren: () => import('../athletes-crew/athletes-crew.module').then(m => m.AthletesCrewModule)
@@ -27,7 +27,7 @@ const routes: Routes = [
         path: 'logout',
         // loadChildren: () => import('../athletes-planning/athletes-planning.module').then(m => m.CoachPlanningModule)
       },
-      {path: '**', redirectTo: '/athletes/training'},
+      {path: '**', redirectTo: '/athletes/profile'},
     ]
 
   }];

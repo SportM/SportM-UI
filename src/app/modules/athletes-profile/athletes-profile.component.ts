@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {StuctureError} from '../../../utils/stucture-error';
 
 export class ErrorMessages {
   dob: StuctureError[];
-  weight: StuctureError[];
-  size: StuctureError[];
+  email: StuctureError[];
   height: StuctureError[];
-  category: StuctureError[];
+  weightCategory: StuctureError[];
   boatPreference: StuctureError[];
   side: StuctureError[];
   sex: StuctureError[];
-  rcaNumber: StuctureError[];
   firstName: StuctureError[];
   lastName: StuctureError[];
 }
@@ -27,17 +25,21 @@ export class AthletesProfileComponent implements OnInit {
 
   public profileForm: FormGroup;
   public errorMessages: ErrorMessages;
+  public boats: [{id: 1, name: 'single'}];
+  public sides: [{id: 1, name: 'port'}];
+  public sex: [{id: 1, name: 'M'}];
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.profileForm = this.fb.group({
       dob: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
       weight: new FormControl(''),
-      size: new FormControl('', [Validators.required]),
       height: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required]),
+      weightCategory: new FormControl('', [Validators.required]),
       boatPreference: new FormControl('', [Validators.required]),
       side: new FormControl('', [Validators.required]),
       sex: new FormControl('', [Validators.required]),
@@ -50,16 +52,13 @@ export class AthletesProfileComponent implements OnInit {
       dob: [
         {type: 'required', message: 'The date of birth is required.'}
       ],
-      weight: [
-        {type: 'required', message: 'The weight is required.'}
-      ],
-      size: [
-        {type: 'required', message: 'The size is required.'}
+      email: [
+        {type: 'required', message: 'The email is required.'}
       ],
       height: [
         {type: 'required', message: 'The height is required.'}
       ],
-      category: [
+      weightCategory: [
         {type: 'required', message: 'The weight category is required.'}
       ],
       boatPreference: [
@@ -71,9 +70,6 @@ export class AthletesProfileComponent implements OnInit {
       sex: [
         {type: 'required', message: 'The sex is required.'}
       ],
-      rcaNumber: [
-        {type: 'required', message: 'The RCA number is required.'}
-      ],
       firstName: [
         {type: 'required', message: 'The firstname is required.'}
       ],
@@ -81,9 +77,12 @@ export class AthletesProfileComponent implements OnInit {
         {type: 'required', message: 'The lastname is required.'}
       ]
     };
-
   }
 
+  create() {
 
-
+  }
 }
+
+
+

@@ -7,9 +7,10 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule,
+  MatButtonModule
 } from '@angular/material';
-import {CoachComponent} from '../coach/coach.component';
+
 
 
 
@@ -24,7 +25,8 @@ import {CoachComponent} from '../coach/coach.component';
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    // MatNativeDateModule,
+    MatNativeDateModule,
+    MatButtonModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -33,7 +35,9 @@ import {CoachComponent} from '../coach/coach.component';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule
   ]
 })
 export class ShareModule { }
