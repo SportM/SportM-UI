@@ -1,4 +1,4 @@
-<div class="example-container" [class.is-mobile]="mobileQuery.matches" >
+<div class="containerMenu" [class.is-mobile]="mobileQuery.matches" >
   <mat-toolbar class="toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -12,9 +12,9 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a routerLink="/athletes/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>
+<!--        <a routerLink="/athletes/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>-->
         <a routerLink="/athletes/profile" (click)="changeTitle($event)" mat-menu-item>Profile</a>
-        <a routerLink="/athletes/regatta"  (click)="changeTitle($event)" mat-menu-item>Regattas</a>
+<!--        <a routerLink="/athletes/regatta"  (click)="changeTitle($event)" mat-menu-item>Regattas</a>-->
         <a routerLink="/athletes/crew"  (click)="changeTitle($event)" mat-menu-item>Equipage</a>
       </mat-nav-list>
     </mat-sidenav>

@@ -1,4 +1,4 @@
-.example-container {
+.containerMenu {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -20,6 +20,7 @@
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1;
+  background: transparent;
 }
 
 .is-mobile .sidenav-container {
@@ -31,6 +32,8 @@
 .toolbar{
   background: red;
   color: white;
+  display: flow;
+  align-items: center;
 }
 
 .toolbar h1{
@@ -49,4 +52,11 @@
   display: flex !important;
   flex-direction: column;
   align-items: flex-end;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-content: center;
 }
