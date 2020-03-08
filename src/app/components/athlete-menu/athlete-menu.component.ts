@@ -1,5 +1,9 @@
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
+import defaultLanguage from '../../../assets/i18n/en.json';
+import {TranslateService} from '@ngx-translate/core';
+import {ServiceService} from '../../services/service.service';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -13,11 +17,31 @@ export class AthleteMenuComponent implements OnDestroy {
   private mobileQueryListener: () => void;
   public title: string;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private translate: TranslateService,
+              private alertService: ServiceService, private snackBar: MatSnackBar) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
-    this.title = 'Entrainement';
+    this.title = 'Profile';
+
+    translate.setTranslation('en', defaultLanguage);
+    translate.setDefaultLang('en');
+    this.alertService.onGood.subscribe((message: string) => {
+      this.snackBar.open(message, 'Fermer', {
+        duration: 4000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right'
+      });
+    });
+
+    this.alertService.onError.subscribe((message: string) => {
+      this.snackBar.open(message, 'Fermer', {
+        duration: 4000,
+        panelClass: 'error',
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right'
+      });
+    });
   }
 
   ngOnDestroy(): void {
@@ -27,5 +51,9 @@ export class AthleteMenuComponent implements OnDestroy {
   changeTitle($event) {
     this.title = $event.target.text;
     return this.title;
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 }

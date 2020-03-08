@@ -16,6 +16,9 @@
         <a routerLink="/coach/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>
         <a routerLink="/coach/exercice" (click)="changeTitle($event)" mat-menu-item>Exercices</a>
         <a routerLink="/coach/plannig"  (click)="changeTitle($event)" mat-menu-item>Planning</a>
+
+        <button (click)="useLanguage('en')">En</button>
+        <button (click)="useLanguage('fr')">Fr</button>
       </mat-nav-list>
     </mat-sidenav>
 
