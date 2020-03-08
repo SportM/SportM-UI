@@ -13,6 +13,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import { HomeComponent } from './components/home/home.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     HttpClientModule,
     MatDialogModule,
     MatSnackBarModule,
+    ToastrModule.forRoot(),
 
     DragAndDropModule,
     CommonModule,
