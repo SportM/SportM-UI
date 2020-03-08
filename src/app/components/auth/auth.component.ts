@@ -61,11 +61,7 @@ export class AuthComponent implements OnInit {
       this.toVerifyEmail = false;
       this.signstatus = 'signin'
     })
-      .catch(err => 
-        {
-          debugger;
-          this.notifyService.showHTMLMessage("<h2>Data shown successfully !!</h2>", "Notification")
-        });
+      .catch(err => console.log(err));
 
   }
 
