@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from 'aws-amplify';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../../services/notification/notification.service'
 
 @Component({
   selector: 'app-auth',
@@ -12,10 +14,12 @@ export class AuthComponent implements OnInit {
   toVerifyEmail: boolean = false;
   userName: string;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private notifyService : NotificationService) { }
 
   ngOnInit() {
   }
+  
+
 
   onSignUp() {
     this.signstatus = 'signup';
@@ -57,7 +61,12 @@ export class AuthComponent implements OnInit {
       this.toVerifyEmail = false;
       this.signstatus = 'signin'
     })
-      .catch(err => console.log(err));
+      .catch(err => 
+        {
+          debugger;
+          this.notifyService.showHTMLMessage("<h2>Data shown successfully !!</h2>", "Notification")
+        });
+
   }
 
   signInToAWS(email: HTMLInputElement, password: HTMLInputElement) {
@@ -71,7 +80,21 @@ export class AuthComponent implements OnInit {
       console.log(user);
       this.route.navigate(['/home'])
     })
-      .catch(err => console.log(err));
+      .catch(err => {
+        if (err.code === 'UserNotConfirmedException') {
+          this.notifyService.showError("Please Confirm your user", "Error")
+      } else if (err.code === 'PasswordResetRequiredException') {
+        this.notifyService.showError("Please reset your password", "Error")
+      } else if (err.code === 'NotAuthorizedException') {
+        this.notifyService.showError("Check your username and password", "Error")
+      } else if (err.code === 'UserNotFoundException') {
+        this.notifyService.showError("User Not Found", "Error")
+      } else {
+        this.notifyService.showError("Please contact your admin", "Error")
+          console.log(err);
+      }
+
+      });
 
   }
 
