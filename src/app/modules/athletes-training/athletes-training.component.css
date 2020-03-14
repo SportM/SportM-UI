@@ -1,0 +1,31 @@
+form{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+form div{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  /*padding: 15px 0;*/
+  align-items: center;
+}
+
+form .presence{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+mat-radio-group{
+  display: flex;
+  flex-direction: column;
+}
+/*mat-radio-group mat-radio-button:first-child{*/
+/*  padding-right: 15px;*/
+/*}*/
+
+form button{
+  width: 25%;
+}
