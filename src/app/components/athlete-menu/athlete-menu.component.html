@@ -1,27 +1,55 @@
-<div class="containerMenu" [class.is-mobile]="mobileQuery.matches" >
-  <mat-toolbar class="toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
+<!--<div class="containerMenu" [class.is-mobile]="mobileQuery.matches" >-->
+<!--  <mat-toolbar class="toolbar">-->
+<!--    <button mat-icon-button (click)="snav.toggle()">-->
+<!--      <mat-icon>menu</mat-icon>-->
+<!--    </button>-->
+<!--    <h1>{{title}}</h1>-->
+
+<!--  </mat-toolbar>-->
+
+<!--  <mat-sidenav-container class="sidenav-container"-->
+<!--                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">-->
+<!--    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"-->
+<!--                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">-->
+<!--      <mat-nav-list>-->
+<!--&lt;!&ndash;        <a routerLink="/athletes/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>&ndash;&gt;-->
+<!--        <a routerLink="/athletes/profile" (click)="changeTitle($event)" mat-menu-item>Profile</a>-->
+<!--&lt;!&ndash;        <a routerLink="/athletes/regatta"  (click)="changeTitle($event)" mat-menu-item>Regattas</a>&ndash;&gt;-->
+<!--        <a routerLink="/athletes/crew"  (click)="changeTitle($event)" mat-menu-item>Equipage</a>-->
+<!--      </mat-nav-list>-->
+
+<!--      <button (click)="useLanguage('en')">En</button>-->
+<!--      <button (click)="useLanguage('fr')">Fr</button>-->
+<!--    </mat-sidenav>-->
+
+<!--  </mat-sidenav-container>-->
+<!--</div>-->
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
     <h1>{{title}}</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  </mat-toolbar>
-
-  <mat-sidenav-container class="sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-<!--        <a routerLink="/athletes/training" (click)="changeTitle($event)"  mat-menu-item>Entrainement</a>-->
-        <a routerLink="/athletes/profile" (click)="changeTitle($event)" mat-menu-item>Profile</a>
-<!--        <a routerLink="/athletes/regatta"  (click)="changeTitle($event)" mat-menu-item>Regattas</a>-->
-        <a routerLink="/athletes/crew"  (click)="changeTitle($event)" mat-menu-item>Equipage</a>
-      </mat-nav-list>
-
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/athletes/training'" (click)="changeTitle($event)" > Trainings </a>
+      <a mat-list-item [routerLink]="'/athletes/profile'" (click)="changeTitle($event)" >Profile</a>
+      <a mat-list-item [routerLink]="'/athletes/crew'" (click)="changeTitle($event)" > Crew </a>
       <button (click)="useLanguage('en')">En</button>
       <button (click)="useLanguage('fr')">Fr</button>
-    </mat-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
 
-  </mat-sidenav-container>
-</div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 
