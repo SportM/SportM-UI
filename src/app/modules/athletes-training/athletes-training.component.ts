@@ -24,7 +24,7 @@ export class AthletesTrainingComponent implements OnInit {
 
   create() {
     console.log('ee');
-    if (this.trainingAttendenceForm.valid){
+    if (this.trainingAttendenceForm.valid) {
       const t = this.trainingAttendenceForm.value;
       return t;
     }
@@ -39,13 +39,13 @@ export class AthletesTrainingComponent implements OnInit {
     for (let i = 0; i < 7; i++) {
       const day = moment().startOf('isoWeek').add(i, 'days').format('dddd MMMM Do');
       if ((i === 0 || i === 2 || i === 4) && this.categoryMock === 'master') {
-        this.trainingAttendenceForm.addControl('presence' + i , new FormControl('', [Validators.required]));
         this.weekDays.push(day);
       }
-
-
-
     }
+    for (let i = 0; i < this.weekDays.length; i++) {
+      this.trainingAttendenceForm.addControl('presence' + i, new FormControl('', [Validators.required]));
+    }
+
     return this.weekDays;
   }
 }
