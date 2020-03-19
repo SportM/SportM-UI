@@ -1,1 +1,16 @@
-<p>athletes-training works!</p>
+<form [formGroup]="trainingAttendenceForm">
+  <div>
+    <h4> Trainings for {{currentMonth}}</h4>
+    <div *ngFor="let day of weekDays; index as i" class="presence">
+      <mat-label>{{day}}</mat-label>
+      <mat-radio-group formControlName="presence{{i}}">
+        <mat-radio-button value="true">yes </mat-radio-button>
+        <mat-radio-button value="false">non</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <button mat-button mat-raised-button
+            (click)="create()">{{'Save'}}
+      <!--          (click)="create()">{{data.training.id ? 'Modifier tous' : 'Créer'}}-->
+    </button>
+  </div>
+</form>

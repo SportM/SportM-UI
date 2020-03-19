@@ -1,0 +1,44 @@
+form{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+form div{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+}
+
+form .presence{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+mat-radio-group{
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+}
+form button{
+  width: 25%;
+}
+
+@media screen and (min-width: 768px) {
+  mat-radio-group{
+    flex-direction: row;
+  }
+  mat-radio-group mat-radio-button:first-child{
+    padding-right: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  form div{
+    width: 60%;
+  }
+}
+
+
