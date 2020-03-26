@@ -4,5 +4,6 @@ export class User {
   id: number;
   firstName: string;
   lastName: string;
-  membershipType: Roles;
+  membershipType: number;
+  email: string;
 }
