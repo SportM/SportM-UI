@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
+import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,6 @@ import { ToastrModule } from 'ngx-toastr';
     MatDialogModule,
     MatSnackBarModule,
     ToastrModule.forRoot(),
-
     DragAndDropModule,
     CommonModule,
     TranslateModule.forRoot({
@@ -39,11 +40,12 @@ import { ToastrModule } from 'ngx-toastr';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    AmplifyAngularModule
   ],
   entryComponents: [
     ConfirmDialogComponent],
-  providers: [],
+  providers: [AmplifyService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

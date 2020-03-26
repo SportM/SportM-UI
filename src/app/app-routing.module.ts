@@ -8,11 +8,11 @@ import { AuthGuard } from './services/auth/auth.guard';
 const routes: Routes = [
   {
     path: 'coach',
-    loadChildren: () => import('./modules/coach/coach.module').then(m => m.CoachModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./modules/coach/coach.module').then(m => m.CoachModule), canActivate: [AuthGuard]
   },
   {
     path: 'athletes',
-    loadChildren: () => import('./modules/athletes/athletes.module').then(m => m.AthletesModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./modules/athletes/athletes.module').then(m => m.AthletesModule), canActivate: [AuthGuard]
   },
   { path: '', component: AuthComponent },
   { path: 'home', component: HomeComponent },

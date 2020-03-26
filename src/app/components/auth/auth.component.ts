@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Auth } from 'aws-amplify';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { NotificationService } from '../../services/notification/notification.service'
+import {Component, OnInit} from '@angular/core';
+import {Auth} from 'aws-amplify';
+import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+import {NotificationService} from '../../services/notification/notification.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,15 +10,15 @@ import { NotificationService } from '../../services/notification/notification.se
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  signstatus: string = 'signin'
-  toVerifyEmail: boolean = false;
+  signstatus = 'signin';
+  toVerifyEmail = false;
   userName: string;
 
-  constructor(private route: Router, private notifyService : NotificationService) { }
+  constructor(private route: Router, private notifyService: NotificationService) {
+  }
 
   ngOnInit() {
   }
-  
 
 
   onSignUp() {
@@ -40,14 +40,14 @@ export class AuthComponent implements OnInit {
         email: email.value,          // optional
         phone_number: contactNo.value,
       }
-    }
+    };
 
 
     Auth.signUp(user)
       .then(data => {
         console.log(data);
         this.toVerifyEmail = true;
-        this.signstatus = "";
+        this.signstatus = '';
       })
       .catch(err => console.log(err));
   }
@@ -57,9 +57,9 @@ export class AuthComponent implements OnInit {
       // Optional. Force user confirmation irrespective of existing alias. By default set to True.
       forceAliasCreation: true
     }).then(data => {
-      console.log(data)
+      console.log(data);
       this.toVerifyEmail = false;
-      this.signstatus = 'signin'
+      this.signstatus = 'signin';
     })
       .catch(err => console.log(err));
 
@@ -70,25 +70,25 @@ export class AuthComponent implements OnInit {
     const authInfo = {
       username: email.value,
       password: password.value
-    }
+    };
 
     Auth.signIn(authInfo).then(user => {
       console.log(user);
-      this.route.navigate(['/home'])
+      this.route.navigate(['/home']);
     })
       .catch(err => {
         if (err.code === 'UserNotConfirmedException') {
-          this.notifyService.showError("Please Confirm your user", "Error")
-      } else if (err.code === 'PasswordResetRequiredException') {
-        this.notifyService.showError("Please reset your password", "Error")
-      } else if (err.code === 'NotAuthorizedException') {
-        this.notifyService.showError("Check your username and password", "Error")
-      } else if (err.code === 'UserNotFoundException') {
-        this.notifyService.showError("User Not Found", "Error")
-      } else {
-        this.notifyService.showError("Please contact your admin", "Error")
+          this.notifyService.showError('Please Confirm your user', 'Error');
+        } else if (err.code === 'PasswordResetRequiredException') {
+          this.notifyService.showError('Please reset your password', 'Error');
+        } else if (err.code === 'NotAuthorizedException') {
+          this.notifyService.showError('Check your username and password', 'Error');
+        } else if (err.code === 'UserNotFoundException') {
+          this.notifyService.showError('User Not Found', 'Error');
+        } else {
+          this.notifyService.showError('Please contact your admin', 'Error');
           console.log(err);
-      }
+        }
 
       });
 
