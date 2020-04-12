@@ -26,7 +26,7 @@ import {
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [
     ReactiveFormsModule,
